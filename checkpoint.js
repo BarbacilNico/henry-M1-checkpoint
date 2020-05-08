@@ -43,7 +43,12 @@ const {
 // allí la recursión
 
 var objContains = function(obj, prop, value){
- 
+    if (obj[prop] === value){
+      return true;
+    } else {
+      return false;
+    }
+  objContains(obj, prop, value);
 }
 
 
@@ -58,7 +63,9 @@ var objContains = function(obj, prop, value){
 // [Para más información del método: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/isArray]
 
 var countArray = function(array){
-  
+  if (array.length === 0){
+    return 0;
+  }  
 }
 
 // ---------------------
@@ -78,7 +85,6 @@ var countArray = function(array){
 //    lista.size(); --> 3
 
 LinkedList.prototype.size = function(){
- 
 }
 
 
@@ -142,6 +148,34 @@ LinkedList.prototype.reverse = function(){
 
 var cardGame = function(mazoUserA, mazoUserB){
 
+  var cartaJugadaA; //Ésta es la carta que jugará el jugador A en cada turno.
+  var cartaJugadaB; //Ésta es la carta que jugará el jugador B en cada turno.
+  for (var i = 0; i < mazoUserA.length && i < mazoUserB.length; i++){
+    cartaJugadaA = mazoUserA[i]; //Aquí el jugador A muestra su carta.
+    cartaJugadaB = mazoUserB[i];
+    if (cartaJugadaA > cartaJugadaB){ //Comprueba si la carta que jugó A es mayor a la de B
+      mazoUserA.dequeue(); //Quita las cartas del mazo para compararlas.
+      mazoUserB.dequeue();
+      mazoUserA.enqueue(cartaJugadaA); //agrega al final del mazo la carta que jugo A
+      mazoUserA.enqueue(cartaJugadaB); //Agrega al final del mazo la carta que jugo B
+    } else {
+      mazoUserA.dequeue(); //Quita las cartas del mazo para compararlas.
+      mazoUserB.dequeue();
+      mazoUserB.enqueue(cartaJugadaB);
+      mazoUserB.enqueue(cartaJugadaA);
+    }
+    if (mazoUserA.length === 0){
+      return "B wins!";
+    }
+    if (mazoUserB.length === 0){
+      return "A wins!"
+    }
+    if (mazoUserA.length === 0 && mazoUserB.length === 0){
+      return "Game tie!";
+    }
+  }
+  
+
 }
 
 // ---------------
@@ -199,6 +233,20 @@ var binarySearch = function (array, target) {
 
 
 var selectionSort = function(array) {
+  for (var i = 0; i < array.length; i++){
+    var min = i;
+    for (var j = i; j < array.length; j++){
+      if (array[j] < array[min]){
+        min = j;
+      }
+    }
+    if (min !== i){
+      var aux = array[i];
+      array[i] = array[min];
+      array[min] = aux;
+    }
+  }
+  return array;
   
 }
 
@@ -216,8 +264,14 @@ var selectionSort = function(array) {
 //    sumaDiez(2);  --> Devolverá 12 (Ya que 2 + 10 = 12)
 //    sumaDiez(11); --> Devolverá 21 (Ya que 11 + 10 = 21)
 
+
 function closureSum(numFijo) {
- 
+  var suma = 0;
+  return function(num){
+    suma = num + numFijo;
+    return suma; 
+  }
+
 }
 
 // -------------------
