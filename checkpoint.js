@@ -85,6 +85,12 @@ var countArray = function(array){
 //    lista.size(); --> 3
 
 LinkedList.prototype.size = function(){
+  if (this.head === null){
+    return 0;
+  }
+  if (this.head !== null){
+    
+  }
 }
 
 
@@ -198,6 +204,11 @@ var cardGame = function(mazoUserA, mazoUserB){
 //       5
 
 var generateBST = function(array){
+  var arbol = {
+    left: [],
+    rigth: [],
+  }
+  
  
 }
 
