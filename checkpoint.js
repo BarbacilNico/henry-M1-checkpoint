@@ -230,7 +230,20 @@ var generateBST = function(array){
 
 
 var binarySearch = function (array, target) {
+  
+  let found = false;
+  let position = -1;
+  let index = 0;
 
+  while(!found && index < array.length) {
+      if(array[index] == target) {
+          found = true;
+          position = index;
+      } else {
+          index += 1;
+      }
+  }
+  return position;
   
 }
 
