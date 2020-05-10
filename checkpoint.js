@@ -65,7 +65,13 @@ var objContains = function(obj, prop, value){
 var countArray = function(array){
   if (array.length === 0){
     return 0;
-  }  
+  }
+  var array2 = array.flat(2);
+  var suma = 0;
+  for (var i = 0; i < array2.length; i++){
+    suma = suma + array2[i];
+  }
+  return suma;
 }
 
 // ---------------------

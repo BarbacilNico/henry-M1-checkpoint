@@ -20,6 +20,6 @@ haya especificado se ejecutará en otro contexto para evitar errores. Por ejempl
 
 * Algoritmo: Un algoritmo es un conjunto de instrucciones o reglas bien ordenadas y definidas, con el objetivo de realizar una actividad. Estas reglas o instrucciones no deben generar duda alguna en quien lo emplea, es decir, debe ser comprensible para quien necesita del algoritmo para hacer una tarea. Básicamente es una serie de pasos que debemos seguir para concretar una tarea específica.
 
-* Big O notation: 
+* Big O notation: Es el método utilizado para descifrar el rendimiento o complejidad de un algoritmo. Sirve para describir el tiempo de ejecución requerido o el espacio en memoria utilizado.
 
 * Inmediatly Invoked Function Expression (IIFF): Lo que se hace básicamente aquí es invocar directamente la función luego de ser definida. Al llegar a la línea de código donde invocamos la función, creará un nuevo contexto de ejecución, lo que quiere decir que lo que ocurra en ese trozo de código se quedará ahí dentro, sin ocasionar problemas en el resto, por lo que sirve bastante cuando se trabaja con varias personas en un mismo archivo, para no colisionar con otras variables, por ejemplo.
