@@ -90,9 +90,14 @@ var countArray = function(array){
 //    lista.add(3);
 //    lista.size(); --> 3
 
-LinkedList.prototype.size = function(){
-  this.size = 0;
-  return size;
+LinkedList.prototype.size = function(current = this.head, acum = 1){
+  if (this.head === null){
+    return 0;
+  }
+  if (current.next !== null){
+    return this.size(current.next, acum = acum + 1)
+  }
+  return acum;  
 }
 
 
