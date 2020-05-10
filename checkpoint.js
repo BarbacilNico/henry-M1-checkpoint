@@ -91,12 +91,8 @@ var countArray = function(array){
 //    lista.size(); --> 3
 
 LinkedList.prototype.size = function(){
-  if (this.head === null){
-    return 0;
-  }
-  if (this.head !== null){
-    
-  }
+  this.size = 0;
+  return size;
 }
 
 
@@ -117,7 +113,25 @@ LinkedList.prototype.size = function(){
 //    sin antes tener cargada la posición 0 y 1.
 
 LinkedList.prototype.addInPos = function(pos, value){
-  
+  if (pos < 0 || pos > this.size){
+    return null;
+  };
+
+  const newNode = new Node(value);
+  let current = this.head;
+  let previous;
+  if (pos === 0){
+    newNode.next = current;
+    this.head = newNode;
+  } else {
+    for (var i = 0; i < pos; i++){
+      previous = current;
+      current = current.next;
+    };
+    newNode.next = current;
+    previous.next = newNode;
+  }
+  this.size++; 
 }
 
 // EJERCICIO 5
